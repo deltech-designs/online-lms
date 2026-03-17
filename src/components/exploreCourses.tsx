@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// ── Types ────────────────────────────────────────────────────────────────────
-
 type Category = "All Categories" | "Design" | "Development" | "Business" | "Marketing";
 type Level = "All" | "Beginner" | "Intermediate" | "Advanced";
 
@@ -17,8 +15,7 @@ interface Course {
   image: string;
 }
 
-// ── Data ────────────────────────────────────────────────────────────────────
-
+// ── Data
 const COURSES: Course[] = [
   {
     id: 1,
@@ -29,8 +26,7 @@ const COURSES: Course[] = [
     reviews: "12.4k",
     price: 89.99,
     badge: "BEST SELLER",
-    image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80",
   },
   {
     id: 2,
@@ -40,8 +36,7 @@ const COURSES: Course[] = [
     rating: 4.8,
     reviews: "8.2k",
     price: 74.99,
-    image:
-      "https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=400&q=80",
   },
   {
     id: 3,
@@ -51,8 +46,7 @@ const COURSES: Course[] = [
     rating: 4.7,
     reviews: "3.5k",
     price: 99.99,
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80",
   },
   {
     id: 4,
@@ -62,8 +56,7 @@ const COURSES: Course[] = [
     rating: 4.6,
     reviews: "5.1k",
     price: 59.99,
-    image:
-      "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&q=80",
   },
   {
     id: 5,
@@ -73,8 +66,7 @@ const COURSES: Course[] = [
     rating: 4.9,
     reviews: "2.9k",
     price: 129.99,
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80",
   },
   {
     id: 6,
@@ -84,8 +76,7 @@ const COURSES: Course[] = [
     rating: 4.5,
     reviews: "1.8k",
     price: 84.99,
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
   },
   {
     id: 7,
@@ -95,8 +86,7 @@ const COURSES: Course[] = [
     rating: 4.8,
     reviews: "4.4k",
     price: 64.99,
-    image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80",
   },
   {
     id: 8,
@@ -107,8 +97,7 @@ const COURSES: Course[] = [
     reviews: "520",
     price: 109.99,
     badge: "NEW",
-    image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=80",
   },
   {
     id: 9,
@@ -118,24 +107,17 @@ const COURSES: Course[] = [
     rating: 4.8,
     reviews: "4.4k",
     price: 64.99,
-    image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80",
   },
 ];
 
-const CATEGORIES: Category[] = [
-  "All Categories",
-  "Design",
-  "Development",
-  "Business",
-];
+const CATEGORIES: Category[] = ["All Categories", "Design", "Development", "Business"];
 const LEVELS: Level[] = ["All", "Beginner", "Intermediate", "Advanced"];
 
-// ── Sub-components ───────────────────────────────────────────────────────────
-
+// ── Sub-components 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <span style={{ color: "#f59e0b", fontSize: 14, fontWeight: 600 }}>
+    <span className="text-amber-400 text-sm font-semibold">
       ★ {rating.toFixed(1)}
     </span>
   );
@@ -144,18 +126,9 @@ function StarRating({ rating }: { rating: number }) {
 function Badge({ text }: { text: "BEST SELLER" | "NEW" }) {
   return (
     <span
-      style={{
-        position: "absolute",
-        top: 12,
-        left: 12,
-        background: text === "BEST SELLER" ? "#1d4ed8" : "#059669",
-        color: "#fff",
-        fontSize: 10,
-        fontWeight: 700,
-        letterSpacing: "0.08em",
-        padding: "4px 8px",
-        borderRadius: 4,
-      }}
+      className={`absolute top-3 left-3 text-white text-xs font-bold tracking-wide px-2 py-1 rounded ${
+        text === "BEST SELLER" ? "bg-blue-700" : "bg-emerald-600"
+      }`}
     >
       {text}
     </span>
@@ -163,22 +136,14 @@ function Badge({ text }: { text: "BEST SELLER" | "NEW" }) {
 }
 
 function CategoryTag({ label }: { label: string }) {
-  const colors: Record<string, string> = {
-    Development: "#1d4ed8",
-    Design: "#7c3aed",
-    Business: "#0369a1",
-    Marketing: "#b45309",
+  const colorMap: Record<string, string> = {
+    Development: "text-blue-700",
+    Design: "text-purple-600",
+    Business: "text-cyan-700",
+    Marketing: "text-amber-700",
   };
   return (
-    <span
-      style={{
-        fontSize: 11,
-        fontWeight: 700,
-        letterSpacing: "0.1em",
-        color: colors[label] ?? "#374151",
-        textTransform: "uppercase",
-      }}
-    >
+    <span className={`text-xs font-bold tracking-widest uppercase ${colorMap[label] ?? "text-gray-700"}`}>
       {label}
     </span>
   );
@@ -191,85 +156,41 @@ function CourseCard({ course }: { course: Course }) {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        background: "#fff",
-        borderRadius: 12,
-        overflow: "hidden",
-        boxShadow: hovered
-          ? "0 12px 40px rgba(0,0,0,0.14)"
-          : "0 2px 12px rgba(0,0,0,0.07)",
-        transition: "box-shadow 0.25s ease, transform 0.25s ease",
-        transform: hovered ? "translateY(-4px)" : "translateY(0)",
-        display: "flex",
-        flexDirection: "column",
-      }}
+      className={`bg-white rounded-xl overflow-hidden flex flex-col transition-all duration-300 ${
+        hovered ? "shadow-2xl -translate-y-1" : "shadow-md translate-y-0"
+      }`}
     >
       {/* Thumbnail */}
-      <div style={{ position: "relative", aspectRatio: "16/9" }}>
+      <div className="relative aspect-video">
         <img
           src={course.image}
           alt={course.title}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          className="w-full h-full object-cover"
         />
         {course.badge && <Badge text={course.badge} />}
       </div>
 
       {/* Body */}
-      <div style={{ padding: "16px", flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
+      <div className="p-4 flex-1 flex flex-col gap-1.5">
         <CategoryTag label={course.category} />
-        <h3
-          style={{
-            margin: 0,
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#111827",
-            lineHeight: 1.4,
-            fontFamily: "'Sora', sans-serif",
-          }}
-        >
+        <h3 className="m-0 text-sm font-bold text-gray-900 leading-snug">
           {course.title}
         </h3>
-        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+        <div className="flex items-center gap-1.5">
           <StarRating rating={course.rating} />
-          <span style={{ fontSize: 12, color: "#6b7280" }}>
-            ({course.reviews} ratings)
-          </span>
+          <span className="text-xs text-gray-500">({course.reviews} ratings)</span>
         </div>
       </div>
 
       {/* Footer */}
-      <div
-        style={{
-          padding: "12px 16px",
-          borderTop: "1px solid #f3f4f6",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <span
-          style={{
-            fontSize: 18,
-            fontWeight: 800,
-            color: "#111827",
-            fontFamily: "'Sora', sans-serif",
-          }}
-        >
+      <div className="px-4 py-3 border-t border-gray-100 flex justify-between items-center">
+        <span className="text-lg font-extrabold text-gray-900">
           ${course.price.toFixed(2)}
         </span>
         <button
-          style={{
-            background: hovered ? "#1741c0" : "#2563eb",
-            color: "#fff",
-            border: "none",
-            borderRadius: 8,
-            padding: "8px 18px",
-            fontSize: 13,
-            fontWeight: 700,
-            cursor: "pointer",
-            transition: "background 0.2s",
-            fontFamily: "'Sora', sans-serif",
-          }}
+          className={`text-white border-none rounded-lg px-4 py-2 text-sm font-bold cursor-pointer transition-colors duration-200 ${
+            hovered ? "bg-blue-800" : "bg-blue-600"
+          }`}
         >
           Enroll
         </button>
@@ -290,19 +211,11 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      style={{
-        padding: "7px 16px",
-        borderRadius: 8,
-        border: active ? "none" : "1.5px solid #d1d5db",
-        background: active ? "#2563eb" : "#fff",
-        color: active ? "#fff" : "#374151",
-        fontSize: 13,
-        fontWeight: 600,
-        cursor: "pointer",
-        transition: "all 0.15s",
-        fontFamily: "'Sora', sans-serif",
-        whiteSpace: "nowrap",
-      }}
+      className={`px-4 py-1.5 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 whitespace-nowrap ${
+        active
+          ? "bg-blue-600 text-white border-none"
+          : "bg-white text-gray-700 border border-gray-300"
+      }`}
     >
       {label}
     </button>
@@ -324,22 +237,13 @@ function PaginationBtn({
     <button
       onClick={onClick}
       disabled={disabled}
-      style={{
-        width: 36,
-        height: 36,
-        borderRadius: 8,
-        border: active ? "none" : "1.5px solid #d1d5db",
-        background: active ? "#2563eb" : "#fff",
-        color: active ? "#fff" : disabled ? "#9ca3af" : "#374151",
-        fontSize: 13,
-        fontWeight: 600,
-        cursor: disabled ? "default" : "pointer",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        transition: "all 0.15s",
-        fontFamily: "'Sora', sans-serif",
-      }}
+      className={`w-9 h-9 rounded-lg text-sm font-semibold flex items-center justify-center transition-all duration-150 border ${
+        active
+          ? "bg-blue-600 text-white border-blue-600"
+          : disabled
+          ? "bg-white text-gray-400 border-gray-300 cursor-default"
+          : "bg-white text-gray-700 border-gray-300 cursor-pointer hover:bg-gray-50"
+      }`}
     >
       {children}
     </button>
@@ -357,8 +261,7 @@ export default function EduStreamPro() {
   const COURSES_PER_PAGE = 8;
 
   const filtered = COURSES.filter((c) => {
-    const matchCat =
-      activeCategory === "All Categories" || c.category === activeCategory;
+    const matchCat = activeCategory === "All Categories" || c.category === activeCategory;
     const matchLvl = activeLevel === "All" || c.level === activeLevel;
     const matchSearch =
       search === "" ||
@@ -376,113 +279,29 @@ export default function EduStreamPro() {
 
   return (
     <>
-      {/* Google Font */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Sora', sans-serif; background: #f9fafb; }
+        body { margin: 0; font-family: 'Sora', sans-serif; }
         input::placeholder { color: #9ca3af; }
       `}</style>
 
-      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-
-        {/* ── NAV ── */}
-        <nav
-          style={{
-            background: "#fff",
-            borderBottom: "1px solid #e5e7eb",
-            padding: "0 40px",
-            height: 60,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            position: "sticky",
-            top: 0,
-            zIndex: 100,
-          }}
-        >
-          {/* Logo */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                background: "#2563eb",
-                borderRadius: 8,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3L2 8l10 5 10-5-10-5z" fill="#fff" />
-                <path d="M2 16l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                <path d="M2 12l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span style={{ fontWeight: 800, fontSize: 17, color: "#111827" }}>
-              EduStream Pro
-            </span>
-          </div>
-
-          {/* Links */}
-          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
-            {["Courses", "My Learning", "Resources"].map((l) => (
-              <a
-                key={l}
-                href="#"
-                style={{
-                  textDecoration: "none",
-                  color: "#374151",
-                  fontWeight: 600,
-                  fontSize: 14,
-                }}
-              >
-                {l}
-              </a>
-            ))}
-            <img
-              src="https://i.pravatar.cc/32?img=12"
-              alt="avatar"
-              style={{ width: 36, height: 36, borderRadius: "50%", cursor: "pointer" }}
-            />
-          </div>
-        </nav>
+      <div className="min-h-screen flex flex-col bg-gray-50 font-sans">
 
         {/* ── MAIN ── */}
-        <main style={{ flex: 1, maxWidth: 1080, margin: "0 auto", padding: "40px 20px", width: "100%" }}>
+        <main className="flex-1 max-w-5xl mx-auto px-5 py-10 w-full">
 
           {/* Heading */}
-          <h1
-            style={{
-              margin: "0 0 6px",
-              fontSize: 34,
-              fontWeight: 800,
-              color: "#111827",
-              fontFamily: "'Sora', sans-serif",
-            }}
-          >
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-1.5 mt-0">
             Explore Courses
           </h1>
-          <p style={{ margin: "0 0 28px", color: "#6b7280", fontSize: 15 }}>
+          <p className="text-gray-500 text-base mb-7 mt-0">
             Master new skills with our expert-led online curriculum.
           </p>
 
           {/* Search */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              background: "#fff",
-              border: "1.5px solid #e5e7eb",
-              borderRadius: 12,
-              padding: "0 16px",
-              marginBottom: 24,
-              boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <div className="flex items-center gap-2.5 bg-white border border-gray-200 rounded-xl px-4 mb-6 shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
               <circle cx="11" cy="11" r="7" stroke="#9ca3af" strokeWidth="2" />
               <path d="M16.5 16.5L21 21" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round" />
             </svg>
@@ -491,39 +310,13 @@ export default function EduStreamPro() {
               placeholder="Search for courses, skills, or software..."
               value={search}
               onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
-              style={{
-                flex: 1,
-                border: "none",
-                outline: "none",
-                fontSize: 14,
-                padding: "14px 0",
-                fontFamily: "'Sora', sans-serif",
-                color: "#111827",
-                background: "transparent",
-              }}
+              className="flex-1 border-none outline-none text-sm py-3.5 text-gray-900 bg-transparent"
             />
           </div>
 
           {/* Filters */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              flexWrap: "wrap",
-              marginBottom: 32,
-            }}
-          >
-            <span
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: "#9ca3af",
-                textTransform: "uppercase",
-                marginRight: 2,
-              }}
-            >
+          <div className="flex items-center gap-2 flex-wrap mb-8">
+            <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">
               Categories:
             </span>
             {CATEGORIES.map((cat) => (
@@ -535,20 +328,9 @@ export default function EduStreamPro() {
               />
             ))}
 
-            <div
-              style={{ width: 1, height: 24, background: "#e5e7eb", margin: "0 8px" }}
-            />
+            <div className="w-px h-6 bg-gray-200 mx-2" />
 
-            <span
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: "#9ca3af",
-                textTransform: "uppercase",
-                marginRight: 2,
-              }}
-            >
+            <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">
               Level:
             </span>
             {LEVELS.map((lvl) => (
@@ -564,32 +346,21 @@ export default function EduStreamPro() {
           {/* Grid */}
           {paginated.length > 0 ? (
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))",
-                gap: 20,
-                marginBottom: 40,
-              }}
+              className="grid gap-5 mb-10"
+              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))" }}
             >
               {paginated.map((course) => (
                 <CourseCard key={course.id} course={course} />
               ))}
             </div>
           ) : (
-            <div
-              style={{
-                textAlign: "center",
-                padding: "60px 0",
-                color: "#9ca3af",
-                fontSize: 15,
-              }}
-            >
+            <div className="text-center py-16 text-gray-400 text-sm">
               No courses match your filters.
             </div>
           )}
 
           {/* Pagination */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6 }}>
+          <div className="flex justify-center items-center gap-1.5">
             <PaginationBtn
               disabled={safePage === 1}
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
@@ -620,85 +391,6 @@ export default function EduStreamPro() {
             </PaginationBtn>
           </div>
         </main>
-
-        {/* ── FOOTER ── */}
-        <footer
-          style={{
-            background: "#fff",
-            borderTop: "1px solid #e5e7eb",
-            padding: "32px 40px 20px",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 1080,
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              flexWrap: "wrap",
-              gap: 20,
-              paddingBottom: 24,
-              borderBottom: "1px solid #f3f4f6",
-            }}
-          >
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-                <div
-                  style={{
-                    width: 28,
-                    height: 28,
-                    background: "#2563eb",
-                    borderRadius: 7,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3L2 8l10 5 10-5-10-5z" fill="#fff" />
-                    <path d="M2 16l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M2 12l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <span style={{ fontWeight: 800, fontSize: 15, color: "#111827" }}>
-                  EduStream Pro
-                </span>
-              </div>
-              <p style={{ margin: 0, fontSize: 13, color: "#6b7280" }}>
-                Transforming lives through accessible education.
-              </p>
-            </div>
-
-            <div style={{ display: "flex", gap: 24 }}>
-              {["Terms of Service", "Privacy Policy", "Contact Us"].map((l) => (
-                <a
-                  key={l}
-                  href="#"
-                  style={{
-                    textDecoration: "none",
-                    color: "#6b7280",
-                    fontSize: 13,
-                    fontWeight: 500,
-                  }}
-                >
-                  {l}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <p
-            style={{
-              textAlign: "center",
-              margin: "20px 0 0",
-              fontSize: 12,
-              color: "#9ca3af",
-            }}
-          >
-            © 2024 EduStream Pro Inc. All rights reserved.
-          </p>
-        </footer>
       </div>
     </>
   );
