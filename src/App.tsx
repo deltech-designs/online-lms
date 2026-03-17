@@ -1,15 +1,14 @@
-import React from 'react'
-import ExploreCourses from './components/exploreCourses'
+import React from "react";
+import SignUpPage from "./pages/Auth/Signup";
+import LoginPage from "./pages/Auth/Login";
 
+export default function App() {
 
-function App() {
-
-
-  return (
+    return(                
     <>
+    <SignUpPage />
+    <LoginPage/>
       <ExploreCourses />
     </>
-  )
-}
-
-export default App
+    )
+};
