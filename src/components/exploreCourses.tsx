@@ -384,72 +384,7 @@ export default function EduStreamPro() {
         input::placeholder { color: #9ca3af; }
       `}</style>
 
-      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-
-        {/* ── NAV ── */}
-        <nav
-          style={{
-            background: "#fff",
-            borderBottom: "1px solid #e5e7eb",
-            padding: "0 40px",
-            height: 60,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            position: "sticky",
-            top: 0,
-            zIndex: 100,
-          }}
-        >
-          {/* Logo */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                background: "#2563eb",
-                borderRadius: 8,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3L2 8l10 5 10-5-10-5z" fill="#fff" />
-                <path d="M2 16l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                <path d="M2 12l10 5 10-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </div>
-            <span style={{ fontWeight: 800, fontSize: 17, color: "#111827" }}>
-              EduStream Pro
-            </span>
-          </div>
-
-          {/* Links */}
-          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
-            {["Courses", "My Learning", "Resources"].map((l) => (
-              <a
-                key={l}
-                href="#"
-                style={{
-                  textDecoration: "none",
-                  color: "#374151",
-                  fontWeight: 600,
-                  fontSize: 14,
-                }}
-              >
-                {l}
-              </a>
-            ))}
-            <img
-              src="https://i.pravatar.cc/32?img=12"
-              alt="avatar"
-              style={{ width: 36, height: 36, borderRadius: "50%", cursor: "pointer" }}
-            />
-          </div>
-        </nav>
-
-        {/* ── MAIN ── */}
+      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>        {/* ── MAIN ── */}
         <main style={{ flex: 1, maxWidth: 1080, margin: "0 auto", padding: "40px 20px", width: "100%" }}>
 
           {/* Heading */}

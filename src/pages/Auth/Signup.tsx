@@ -97,26 +97,7 @@ export default function SignUpPage() {
  
   return ( 
     <div className="min-h-screen bg-gray-100 flex flex-col font-sans"> 
-      {/* Navbar */} 
-      <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center 
-justify-between"> 
-        <div className="flex items-center gap-2"> 
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center"> 
-            <BookOpenIcon /> 
-          </div> 
-          <span className="font-semibold text-gray-800 text-sm">EduStream Pro</span> 
-        </div> 
-        <nav className="flex items-center gap-6"> 
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-900 
-transition-colors">Courses</a> 
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-900 
-transition-colors">Pricing</a> 
-          <button className="text-sm px-4 py-1.5 border border-gray-300 rounded-md 
-text-gray-700 hover:bg-gray-50 transition-colors"> 
-            Log In 
-          </button> 
-        </nav> 
-      </header> 
+       
  
       {/* Main */} 
       <main className="flex-1 flex items-center justify-center py-12 px-4"> 

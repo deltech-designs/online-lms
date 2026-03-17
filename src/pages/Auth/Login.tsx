@@ -59,7 +59,7 @@ const CheckBadgeIcon = () => (
 ); 
  
 export default function LoginPage() { 
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword] = useState(false); 
   const [form, setForm] = useState({ email: "", password: "" }); 
  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
@@ -69,11 +69,6 @@ export default function LoginPage() {
   return ( 
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6 font-sans 
 relative"> 
-      {/* Dark mode toggle */} 
-      <button className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 
-transition-colors"> 
-        <MoonIcon /> 
-      </button> 
  
       {/* Card */} 
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg overflow-hidden flex"> 
