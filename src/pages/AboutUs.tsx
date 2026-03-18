@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { IconRocket, IconStory, IconCheck, IconGlobe, IconBulb, IconHeart } from "../components/ui/iconrocket";
+import Footer from "../components/ui/Footer";
 
 // ── Styles ──────────────────────────────────────────────────────────────────
 const globalStyles = `
@@ -265,6 +266,8 @@ export default function App() {
         <Why />
         <div style={{ height: 64 }} />
       </main>
+
+      <Footer />
     </>
   );
 }

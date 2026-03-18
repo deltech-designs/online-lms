@@ -1,9 +1,9 @@
 import React from 'react'
 import HomePage  from './pages/HomePage'
 import { Navigate, Route, Routes } from "react-router-dom";
-import SignUpPage from "../pages/Auth/Signup";
-import LoginPage from "../pages/Auth/Login";
-import ExploreCourses from "../components/exploreCourses";
+import SignUpPage from "./pages/Auth/Signup";
+import LoginPage from "./pages/Auth/Login";
+import ExploreCourses from "./components/features/Courses/exploreCourse";
 import Navbar from "./components/ui/Navbar";
 import AboutUs from "./pages/AboutUs";
 
