@@ -1,9 +1,11 @@
+import React from 'react'
+import { HomePage } from './pages/HomePage'
 import { Navigate, Route, Routes } from "react-router-dom";
 import SignUpPage from "./pages/Auth/Signup";
 import LoginPage from "./pages/Auth/Login";
 import ExploreCourses from "./components/exploreCourses";
 import Navbar from "./components/ui/Navbar";
-import Home from "./pages/home/home";
+// import Home from "./pages/home/home";
 
 function InfoPage({ title, description }: { title: string; description: string }) {
   return (
@@ -24,7 +26,7 @@ export default function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<ExploreCourses />} />
         <Route
           path="/about-us"
