@@ -8,7 +8,7 @@ import Testimonials from '../components/Testimonials';
 import CTABanner from '../components/CTABanner';
 import Footer from '../components/Footer';
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -24,3 +24,5 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+
+export default HomePage;
