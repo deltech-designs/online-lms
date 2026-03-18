@@ -2,6 +2,7 @@ import {Button} from "./button";
 import { NavLink } from "react-router-dom";
 import logoIcon from "../../assets/icon.webp";
 
+
 const links = [
     { to: "/explore", label: "Course" },
     { to: "/about-us", label: "About Us" },
