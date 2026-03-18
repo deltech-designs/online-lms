@@ -5,7 +5,7 @@ import SignUpPage from "./pages/Auth/Signup";
 import LoginPage from "./pages/Auth/Login";
 import ExploreCourses from "./components/exploreCourses";
 import Navbar from "./components/ui/Navbar";
-// import Home from "./pages/home/home";
+import AboutUs from "./pages/AboutUs";
 
 function InfoPage({ title, description }: { title: string; description: string }) {
   return (
@@ -31,10 +31,7 @@ export default function App() {
         <Route
           path="/about-us"
           element={
-            <InfoPage
-              title="About EduStream Pro"
-              description="We build professional online learning experiences that help learners move from curiosity to capability with structured, expert-led courses."
-            />
+            <AboutUs />
           }
         />
         <Route
