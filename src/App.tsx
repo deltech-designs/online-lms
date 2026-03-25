@@ -4,6 +4,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import SignUpPage from "./pages/Auth/Signup";
 import LoginPage from "./pages/Auth/Login";
 import ExploreCourses from "./components/features/Courses/exploreCourse";
+import CourseDetailWrapper from "./components/features/Courses/CourseDetailWrapper";
+import PaymentPage from "./components/features/Courses/PaymentPage";
 import Navbar from "./components/ui/Navbar";
 import AboutUs from "./pages/AboutUs";
 
@@ -28,6 +30,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<ExploreCourses />} />
+        <Route path="/courses/:id" element={<CourseDetailWrapper />} />
+        <Route path="/payment/:id" element={<PaymentPage />} />
         <Route
           path="/about-us"
           element={
