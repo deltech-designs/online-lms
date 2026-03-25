@@ -1,4 +1,5 @@
-import { useState } from "react"; 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 const BookOpenIcon = () => ( 
 <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white" stroke="currentColor" 
 strokeWidth={2}> 
@@ -17,22 +18,14 @@ stroke="currentColor" strokeWidth={1.5}>
 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /> 
 </svg> 
 ); 
-const LockIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-gray-400" 
-stroke="currentColor" strokeWidth={1.5}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 
-0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 
-2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /> 
-</svg> 
-); 
-const MoonIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-gray-500" 
-stroke="currentColor" strokeWidth={1.5}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 
-15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 
-16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /> 
-</svg> 
-); 
+const LockIcon = () => (
+<svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-gray-400"
+stroke="currentColor" strokeWidth={1.5}>
+<path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9
+0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25
+2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+</svg>
+);
 const GoogleIcon = () => ( 
 <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg"> 
 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 
@@ -59,9 +52,10 @@ const CheckBadgeIcon = () => (
 ); 
  
 export default function LoginPage() { 
-  const [showPassword] = useState(false); 
-  const [form, setForm] = useState({ email: "", password: "" }); 
- 
+  const navigate = useNavigate();
+  const [showPassword] = useState(false);
+  const [form, setForm] = useState({ email: "", password: "" });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value })); 
   }; 
@@ -148,12 +142,17 @@ placeholder-gray-300 text-gray-800"
             </div> 
  
             {/* Password */} 
-            <div> 
-              <div className="flex items-center justify-between mb-1"> 
-                <label className="text-sm font-medium text-gray-700">Password</label> 
-                <a href="#" className="text-xs text-blue-500 hover:underline">Forgot 
-Password?</a> 
-              </div> 
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="text-sm font-medium text-gray-700">Password</label>
+                <button
+                  type="button"
+                  onClick={() => navigate('/forgetpassword')}
+                  className="text-xs text-blue-500 hover:underline bg-transparent border-none cursor-pointer"
+                >
+                  Forgot Password?
+                </button>
+              </div>
               <div className="relative"> 
                 <span className="absolute left-3 top-1/2 -translate-y-1/2"> 
                   <LockIcon /> 
