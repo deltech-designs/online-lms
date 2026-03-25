@@ -28,7 +28,7 @@ function CourseCard({ course, onView }: { course: Course; onView: (id: number) =
           <span className="text-xs text-gray-500">({course.reviews} ratings)</span>
         </div>
       </div>
-      <div className="px-4 py-3 border-t border-gray-100 flex justify-between items-center">
+      <div className="px-4 py-3 gap-2 border-t border-gray-100 flex justify-between items-center">
         <span className="text-lg font-extrabold text-gray-900">${course.price.toFixed(2)}</span>
         <button
           onClick={() => onView(course.id)}
@@ -36,7 +36,7 @@ function CourseCard({ course, onView }: { course: Course; onView: (id: number) =
             hovered ? "bg-blue-800" : "bg-blue-600"
           }`}
         >
-          Enroll
+          View More
         </button>
       </div>
     </div>
