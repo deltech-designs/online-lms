@@ -1,9 +1,13 @@
+import React from 'react'
+import HomePage  from './pages/HomePage'
 import { Navigate, Route, Routes } from "react-router-dom";
 import SignUpPage from "./pages/Auth/Signup";
 import LoginPage from "./pages/Auth/Login";
-import ExploreCourses from "./components/exploreCourses";
+import ExploreCourses from "./components/features/Courses/exploreCourse";
+import CourseDetailWrapper from "./components/features/Courses/CourseDetailWrapper";
+import PaymentPage from "./components/features/Courses/PaymentPage";
 import Navbar from "./components/ui/Navbar";
-import Home from "./pages/home/home";
+import AboutUs from "./pages/AboutUs";
 
 function InfoPage({ title, description }: { title: string; description: string }) {
   return (
@@ -24,15 +28,14 @@ export default function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/explore" element={<ExploreCourses />} />
+        <Route path="/courses/:id" element={<CourseDetailWrapper />} />
+        <Route path="/payment/:id" element={<PaymentPage />} />
         <Route
           path="/about-us"
           element={
-            <InfoPage
-              title="About EduStream Pro"
-              description="We build professional online learning experiences that help learners move from curiosity to capability with structured, expert-led courses."
-            />
+            <AboutUs />
           }
         />
         <Route

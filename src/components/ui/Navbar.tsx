@@ -1,6 +1,7 @@
-import {Button} from "./button";
+import {Button} from "./button.tsx";
 import { NavLink } from "react-router-dom";
 import logoIcon from "../../assets/icon.webp";
+
 
 const links = [
     { to: "/explore", label: "Course" },

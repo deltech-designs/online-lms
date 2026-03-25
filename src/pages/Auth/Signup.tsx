@@ -258,5 +258,4 @@ transition-colors">Contact</a>
       </footer> 
     </div> 
   ); 
-} 
- 
+}
