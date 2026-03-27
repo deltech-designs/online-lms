@@ -3,6 +3,8 @@ import HomePage  from './pages/HomePage'
 import { Navigate, Route, Routes } from "react-router-dom";
 import SignUpPage from "./pages/Auth/Signup";
 import LoginPage from "./pages/Auth/Login";
+import ForgotPasswordPage from './pages/Auth/forgetpassword';
+import CheckEmailPage from './pages/Auth/checkmail';
 import ExploreCourses from "./components/features/Courses/exploreCourse";
 import CourseDetailWrapper from "./components/features/Courses/CourseDetailWrapper";
 import PaymentPage from "./components/features/Courses/PaymentPage";
@@ -49,6 +51,8 @@ export default function App() {
         />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/ForgotPasswordPage" element={<ForgotPasswordPage />} />
+        <Route path="/CheckEmailPage" element={<CheckEmailPage/>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>

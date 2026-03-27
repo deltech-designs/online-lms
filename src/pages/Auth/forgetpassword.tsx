@@ -1,68 +1,16 @@
 import { useState } from "react"; 
-const BookOpenIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white" stroke="currentColor" 
-strokeWidth={2}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 
-3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 
-2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 
-18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /> 
-</svg> 
-); 
+import { BookOpenIcon, EnvelopeIcon, ResetLockIcon, ArrowRightIcon } from "../../utils/Icon";
+import { useNavigate } from "react-router-dom"; 
+ 
+ 
 
-const ArrowLeftIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" 
-strokeWidth={2}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 
-12h18" /> 
-</svg> 
-); 
-const ArrowRightIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 ml-1.5" stroke="currentColor" 
-strokeWidth={2}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 
-12H3" /> 
-</svg> 
-); 
-const ResetLockIcon = () => ( 
-<svg viewBox="0 0 24 24" fill="none" className="w-8 h-8" stroke="currentColor" 
-strokeWidth={1.5}> 
-<path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 
-0v3.75" stroke="#3b82f6" /> 
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 10.5h13.5a2.25 2.25 0 012.25 
-2.25v6.75a2.25 2.25 0 01-2.25 2.25H5.25a2.25 2.25 0 01-2.25-2.25v-6.75a2.25 2.25 0 
-012.25-2.25z" stroke="#3b82f6" /> 
-    <path d="M16 7.5a4 4 0 014 4" stroke="#93c5fd" strokeWidth={1.5} strokeLinecap="round" /> 
-    <path d="M18.5 5l1.5-1.5M20 5l-1.5-1.5" stroke="#3b82f6" strokeWidth={1.5} 
-strokeLinecap="round" /> 
-  </svg> 
-); 
  
 export default function ForgotPasswordPage() { 
   const [email, setEmail] = useState(""); 
+  const navigate = useNavigate();
  
   return ( 
     <div className="min-h-screen bg-gray-100 flex flex-col font-sans"> 
-      {/* Navbar */} 
-      <header className="bg-white border-b border-gray-200 px-6 py-3 flex items-center 
-justify-between"> 
-        <div className="flex items-center gap-2"> 
-          <div className="w-7 h-7 bg-blue-500 rounded-lg flex items-center justify-center"> 
-            <BookOpenIcon /> 
-          </div> 
-          <span className="font-semibold text-gray-800 text-sm">EduStream Pro</span> 
-        </div> 
-        <nav className="flex items-center gap-6"> 
-          <a href="#" className="text-xs font-medium text-gray-600 hover:text-gray-900 
-tracking-wide uppercase transition-colors"> 
-            Course Catalog 
-          </a> 
-          <a href="#" className="text-xs font-medium text-gray-600 hover:text-gray-900 
-tracking-wide uppercase transition-colors"> 
-            Pricing 
-          </a> 
-        </nav> 
-      </header> 
- 
       {/* Main */} 
       <main className="flex-1 flex flex-col items-center justify-center py-12 px-4"> 
         {/* Back link */} 
@@ -72,8 +20,11 @@ tracking-wide uppercase transition-colors">
             className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 
 transition-colors" 
           > 
-            <ArrowLeftIcon /> 
-            Back to Login 
+            
+            <p className="text-xs text-gray-500">
+                <button onClick={() => navigate('/login')} className="ml-1 text-blue-500 font-semibold hover:underline"> Back to Login </button>
+            </p>
+             
           </a> 
         </div> 
  
@@ -118,6 +69,7 @@ placeholder-gray-300 text-gray-800"
  
             {/* Submit */} 
             <button 
+            onClick={() => navigate('/CheckEmailPage')}
               type="button" 
               className="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-600 
 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors" 

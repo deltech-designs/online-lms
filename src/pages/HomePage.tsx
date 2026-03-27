@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/ui/Navbar';
 import HeroSection from '../components/HeroSection';
 import TrustBar from '../components/TrustBar';
 import FeaturedCourses from '../components/FeaturedCourses';
