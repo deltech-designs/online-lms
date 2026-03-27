@@ -1,7 +1,6 @@
 import { useState } from "react"; 
 import { BookOpenIcon, EnvelopeIcon, LockIcon, GoogleIcon, CheckBadgeIcon, EyeIcon } from "../../utils/Icon";
-import { useNavigate } from "react-router-dom"; // Removed Route/Routes from here
-// import ForgotPasswordPage from "./pages/Auth/forgetpassword"; // Import the forgot password page
+import { useNavigate } from "react-router-dom";
 import logoIcon from "../../assets/icon.webp";
 import supabase from '../../utils/supabase'; 
 
@@ -39,12 +38,12 @@ export default function LoginPage() {
   };
 
   // Google Login Logic
-  const handleGoogleLogin = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-    });
-    if (error) alert(error.message);
-  };
+  // const handleGoogleLogin = async () => {
+  //   const { error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //   });
+  //   if (error) alert(error.message);
+  // };
 
   return ( 
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6 font-sans relative"> 
@@ -143,7 +142,7 @@ export default function LoginPage() {
 
             <button 
               type="button" 
-              onClick={handleGoogleLogin}
+              // onClick={handleGoogleLogin}
               className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2.5 text-sm text-gray-600 hover:bg-gray-50 transition-colors" 
             > 
               <GoogleIcon /> Sign in with Google 
