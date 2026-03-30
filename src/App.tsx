@@ -8,6 +8,76 @@ import CourseDetailWrapper from "./components/features/Courses/CourseDetailWrapp
 import PaymentPage from "./components/features/Courses/PaymentPage";
 import Navbar from "./components/ui/Navbar";
 import AboutUs from "./pages/AboutUs";
+import { useState } from "react";
+import Navbar2 from "./components/quiz/Navbar2";
+import Sidebar from "./components/quiz/Sidebar";
+import AIAssistant from "./components/quiz/AIAssistant";
+import AssessmentIntro from "./components/quiz/AssessmentIntro";
+import QuizScreen from "./components/quiz/QuizScreen";
+import { modules, questions } from "./components/quiz/data";
+
+type Screen = "course" | "quiz";
+
+const CoursePlayer: React.FC = () => {
+  const [screen, setScreen] = useState<Screen>("course");
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+
+  const question = questions[currentQuestion - 1];
+
+  const handleNext = () => {
+    if (currentQuestion < questions.length) setCurrentQuestion((q) => q + 1);
+  };
+  const handlePrev = () => {
+    if (currentQuestion > 1) setCurrentQuestion((q) => q - 1);
+  };
+
+  if (screen === "quiz") {
+    return (
+      <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">
+        <Navbar2 variant="assessment" onBack={() => setScreen("course")} />
+        <div className="flex flex-1 overflow-hidden">
+          <Sidebar
+            variant="assessment"
+            modules={modules}
+            activeLesson={currentQuestion}
+            onLessonClick={setCurrentQuestion}
+            progress={65}
+            onSubmitExam={() => alert("Exam submitted! 🎉")}
+            currentQuestion={currentQuestion}
+            totalQuestions={questions.length}
+            lockedFrom={4}
+          />
+          <QuizScreen
+            question={question}
+            questionIndex={currentQuestion}
+            totalQuestions={questions.length}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">
+      <Navbar2 variant="course-player" />
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar
+          variant="course"
+          modules={modules}
+          activeLesson={6}
+          onLessonClick={(id: number) => { if (id === 6) setScreen("course"); }}
+          progress={65}
+        />
+        <AssessmentIntro onStart={() => { setCurrentQuestion(1); setScreen("quiz"); }} />
+        <AIAssistant />
+      </div>
+    </div>
+  );
+};
+
+
 
 function InfoPage({ title, description }: { title: string; description: string }) {
   return (
@@ -23,7 +93,7 @@ function InfoPage({ title, description }: { title: string; description: string }
   );
 }
 
-export default function App() {
+function App() {
   return (
     <div>
       <Navbar />
@@ -54,3 +124,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
