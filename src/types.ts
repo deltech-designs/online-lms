@@ -37,14 +37,14 @@ export interface Review {
 export interface Course {
   id: number;
   title: string;
-  category: Exclude<Category, "All Categories">;
-  level: Exclude<Level, "All">;
-  rating: number;
-  reviews: string;
-  price: number;
+  category?: Exclude<Category, "All Categories">;
+  level?: Exclude<Level, "All">;
+  rating?: number;
+  reviews?: string;
+  price?: number;
   originalPrice?: number;
   badge?: "BEST SELLER" | "NEW";
-  image: string;
+  image?: string;
   heroImage?: string;
   description?: string;
   students?: string;
@@ -53,7 +53,47 @@ export interface Course {
   modules?: Module[];
   studentReviews?: Review[];
   includes?: string[];
+  subtitle?: string;
+  module?: string;
+  progress?: number;
+  gradient?: string;
 }
+
+export interface Deadline {
+  id: number;
+  month: string;
+  day: number;
+  title: string;
+  course: string;
+}
+
+export interface Recommendation {
+  id: number;
+  tag: string;
+  title: string;
+  description: string;
+  instructor: string;
+  price: string;
+  bgColor: string;
+}
+
+export interface Stat {
+  icon: string;
+  label: string;
+  value: string;
+  accent: string;
+  pct: number;
+}
+
+export interface Notification {
+  icon: string;
+  title: string;
+  sub: string;
+  time: string;
+  unread: boolean;
+}
+
+export type NavItem = "Dashboard" | "My Courses" | "Schedule" | "Achievements";
 
 export const COURSES: Course[] = [
   {
